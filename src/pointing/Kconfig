@@ -1,10 +1,13 @@
 config ZMK_INPUT_PROCESSOR_KEYBIND
     bool "Direction Keybind Input Processor"
-    default n
+    default y
+    depends on DT_HAS_ZMK_INPUT_PROCESSOR_KEYBIND_ENABLED
     help
-        Enable the direction keybind input processor.
+        Enable the direction keybind input processor when a matching
+        devicetree node is present (zmk,input-processor-keybind).
 
-        This input processor converts relative XY movements into direction key presses.
+        This input processor converts relative XY movements into
+        direction key presses.
 
 config ZMK_INPUT_PROCESSOR_KEYBIND_TAP_MS
     int "Tap Milliseconds"
@@ -26,5 +29,4 @@ config ZMK_INPUT_PROCESSOR_KEYBIND_TICK
     depends on ZMK_INPUT_PROCESSOR_KEYBIND
     help
         The movement threshold (in units) before a key press is triggered.
-
 
